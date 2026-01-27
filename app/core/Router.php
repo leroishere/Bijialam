@@ -1,10 +1,27 @@
 <?php
-
-namespace App\Core; 
-
+namespace App\Core;
 class Router
 {
-
-    public function run():
+    public function run()  
+    {
+        $method = $_SERVER['REQUEST_METHOD'];
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+ 
+        echo "{$method} {$uri}";
+ 
+        if ($method == 'GET' && $uri == '/students') {
+            require_once '../app/controllers/StudentController.php';
+            return;
+        }
+ 
+        if ($method == 'GET' && $uri == '/students/create') {
+            echo "<h1>Tambah Siswa</h1>";
+            echo "<p>Menambahkan siswa baru</p>";
+            return;
+        }
+ 
+        http_response_code(404);
+        echo "<h1>404 Not Found</h1>";
+    }
 }
-
+?>
