@@ -1,18 +1,21 @@
 <?php
-namespace App\Controllers;
-
-class StudentController
-{
-    public function index()
+    namespace App\Controllers;
+ 
+    class StudentController
     {
-        echo "<h1>Students Page</h1>";
-        echo "<p>Show students list</p>";
+        public function index(): void
+        {
+            echo '<h1>Daftar Siswa</h1>';
+            echo '<p>Menampilkan daftar siswa</p>';
+        }
+ 
+        public function create(): void
+        {
+            echo '<h1>Tambah Siswa</h1>';
+            echo '<p>Menampilkan form tambah siswa</p>';
+        }
     }
-
-    public function create()
-    {
-        echo "<h1>Tambah Siswa</h1>";
-        echo "<p>Menambahkan siswa baru</p>";
-    }
-}
+ 
+ 
+ 
 ?>
