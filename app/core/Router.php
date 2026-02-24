@@ -43,7 +43,7 @@ public function run(): void
                 $controller = new $controllerClass();
 
                 $function = $route['function'];
-                $controller->$function();
+                call_user_func_array(callback: [$controller, $function], args: $matches);
 
                 return;
             }
