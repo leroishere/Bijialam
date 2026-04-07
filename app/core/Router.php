@@ -1,37 +1,33 @@
 <?php
 
-
 namespace App\Core;
-
 
 use App\Controllers\StudentController;
 
 class Router
 {
-private $routes = [];
+    private array $routes = [];
 
+    public function add(string $method, string $uri, string $controller, string $function)
+    {
+        $this->routes[] = [
+            'method' => $method,
+            'uri' => $uri,
+            'controller' => $controller,
+            'function' => $function,
+        ];
+    }
 
+    public function run()
+    {
+        $method = $_SERVER['REQUEST_METHOD'];
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-public function add(string $method, string $uri, string $controller, string $function): void
-{
-    $this->routes[] = [
-        'method' => $method,
-        'uri' => $uri,
-        'controller' => $controller,
-        'function' => $function,
-    ];
-}
-public function run(): void
-{
-    $method = $_SERVER['REQUEST_METHOD'];
-    $uri = parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
-
-    foreach ($this->routes as $route) {
-        if ($route['method'] == $method && $route['uri'] == $uri) {
+        foreach ($this->routes as $route) {
             $pattern = str_replace(
-                search: '{id}',
-                replace: '([0-9]+)',
-                subject: $route['uri']
+                '{id}',
+                '([0-9]+)',
+                $route['uri']
             );
 
             $pattern = '#^' . $pattern . '$#';
@@ -43,15 +39,14 @@ public function run(): void
                 $controller = new $controllerClass();
 
                 $function = $route['function'];
-                call_user_func_array(callback: [$controller, $function], args: $matches);
+                call_user_func_array([$controller, $function], $matches);
 
                 return;
             }
         }
+
+        http_response_code(404);
+        echo '<h1>404 - Page Not Found</h1>';
     }
 
-
-    http_response_code(404);
-    echo '<h1>404 - Page Not Found</h1>';
-}
 }

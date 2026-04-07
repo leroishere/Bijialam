@@ -11,8 +11,12 @@
         {
             require_once __DIR__ . '/../views/students/create.php';
         }
+
+        public function show(string $id)
+        {
+            require_once __DIR__ . '/../views/students/show.php';
+        }
+
     }
- 
- 
  
 ?>
