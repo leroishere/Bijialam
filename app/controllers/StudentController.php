@@ -17,6 +17,10 @@
             require_once __DIR__ . '/../views/students/show.php';
         }
 
+        public function edit(string $id)
+        {
+            require_once __DIR__ . '/../views/students/edit.php';
+        }
     }
  
 ?>
