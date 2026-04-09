@@ -13,8 +13,10 @@ class Controller
             '/',
             $view
         );
+        
+        $content = "../app/views/{$view}.php";
 
-        require_once "../app/views/{$view}.php";
+        require_once "../app/views/layouts/app.php";
     }
 
 } 
