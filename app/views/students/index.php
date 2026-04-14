@@ -20,6 +20,32 @@
             </tr>
         </thead>
             <tbody>
+                <?php foreach($students as $index => $student): ?>
+                    <tr>
+                    <td class ="px-4 py-2 text-left">
+                        <?= $index + 1?>
+                    </td>
+                    <td class ="px-4 py-2 text-left">
+                        <?= $student['name']?>
+                    </td>
+                    <td class ="px-4 py-2 text-left">
+                        <?= $student['NIS']?>
+                    </td>
+                    <td class ="px-4 py-2 text-left">
+                        <?= $student['class']?>
+                    </td>
+                    <td class ="px-4 py-2 text-left">
+                        <?= $student['Phone_Number']?>
+                    </td>
+                    <td class ="px-4 py-2">
+                        <div class ="flex justify-center items-center gap-4">
+                            <a href="/students/<?= $student['id'] ?>" class="text-green-500">Detail</a>
+                            <a href="/students/<?= $student['id'] ?>/edit" class="text-yellow-500">Edit</a>
+                            <a href="" class="text-red-500">Hapus</a>
+                        </div>
+                    </td>
+                </tr>
+                <?php endforeach?>
                 <tr>
                     <td class ="px-4 py-2 text-left">1</td>
                     <td class ="px-4 py-2 text-left">Andi</td>
