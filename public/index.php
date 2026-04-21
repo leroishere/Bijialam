@@ -10,6 +10,10 @@ $router->add('GET', '/students', 'StudentController', 'index');
 $router->add('GET', '/students/create', 'StudentController', 'create');
 $router->add('GET', '/students/{id}', 'StudentController', 'show');
 $router->add('GET', '/students/{id}/edit', 'StudentController', 'edit');
+
+$router->add('POST', '/students', 'StudentController', 'store');
+
+
 $router->run();
 
 ?>
