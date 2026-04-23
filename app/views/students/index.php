@@ -41,25 +41,16 @@
                         <div class ="flex justify-center items-center gap-4">
                             <a href="/students/<?= $student['id'] ?>" class="text-green-500">Detail</a>
                             <a href="/students/<?= $student['id'] ?>/edit" class="text-yellow-500">Edit</a>
-                            <a href="" class="text-red-500">Hapus</a>
+                            <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus data siswa ini?');" action="/students/<?= $student['id'] ?>" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="text-red-500">Hapus</button>
+
+                            </form>
+
                         </div>
                     </td>
                 </tr>
                 <?php endforeach?>
-                <tr>
-                    <td class ="px-4 py-2 text-left">1</td>
-                    <td class ="px-4 py-2 text-left">Andi</td>
-                    <td class ="px-4 py-2 text-left">1234</td>
-                    <td class ="px-4 py-2 text-left">XI TKJ 2</td>
-                    <td class ="px-4 py-2 text-left">085849264487</td>
-                    <td class ="px-4 py-2">
-                        <div class ="flex justify-center items-center gap-4">
-                            <a href="/students/1" class="text-green-500">Detail</a>
-                            <a href="/students/1/edit" class="text-yellow-500">Edit</a>
-                            <a href="" class="text-red-500">Hapus</a>
-                        </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>

@@ -5,22 +5,23 @@
         </div>
  
     <div class="p-4 bg-white shadow rounded-lg">
-       <form action="" class="grid grid-cols-2 gap-4">
+       <form action="/student/<?= $student['id'] ?>" method="POST" class="grid grid-cols-2 gap-4">
+        <input type="hidden" name="_method" value="PUT">
         <div class="space-y-2">
             <label class="block font-bold" for="name">Nama</label>
-            <input class="w-full px-4 py-2 border rounded-lg" type="text"  id="name" class="w-full border rounded-lg p-2">
+            <input value="<?= $student['name'] ?>" class="w-full px-4 py-2 border rounded-lg" type="text"  id="name" class="w-full border rounded-lg p-2">
         </div>
         <div class="space-y-2">
             <label class="block font-bold" for="class">Kelas</label>
-            <input class="w-full px-4 py-2 border rounded-lg" type="text"  id="name" class="w-full border rounded-lg p-2">
+            <input value="<?= $student['class'] ?>" class="w-full px-4 py-2 border rounded-lg" type="text"  id="class" class="w-full border rounded-lg p-2">
         </div>
         <div class="space-y-2">
             <label class="block font-bold" for="NIS">NIS</label>
-            <input class="w-full px-4 py-2 border rounded-lg" type="text"  id="name" class="w-full border rounded-lg p-2">
+            <input value="<?= $student['NIS'] ?>" class="w-full px-4 py-2 border rounded-lg" type="text"  id="NIS" class="w-full border rounded-lg p-2">
         </div>
         <div class="space-y-2">
             <label class="block font-bold" for="phone_number">Nomor Telepon</label>
-            <input class="w-full px-4 py-2 border rounded-lg" type="text"  id="name" class="w-full border rounded-lg p-2">
+            <input value="<?= $student['Phone_Number'] ?>" class="w-full px-4 py-2 border rounded-lg" type="text"  id="phone_number" class="w-full border rounded-lg p-2">
         </div>
         <div class ="flex justify-end col-span-2 gap-4">
              <a href="/students" class="py-2 px-4 bg-gray-100 rounded-lg">Kembali</a>
